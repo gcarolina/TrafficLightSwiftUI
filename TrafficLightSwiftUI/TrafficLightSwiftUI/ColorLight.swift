@@ -1,5 +1,5 @@
 //
-//  ColorCircle.swift
+//  ColorLight.swift
 //  TrafficLightSwiftUI
 //
 //  Created by Carolina on 13.02.23.
@@ -7,20 +7,23 @@
 
 import SwiftUI
 
-struct ColorCircle: View {
+struct ColorLight: View {
     
     let color: Color
+    let opacity: Double
+    let size: CGFloat
     
     var body: some View {
         Circle()
+            .frame(width: size, height: size)
             .foregroundColor(color)
+            .opacity(opacity)
             .overlay(Circle().stroke(Color.black, lineWidth: 3))
-            .frame(width: 125, height: 125)
     }
 }
 
-struct ColorCircle_Previews: PreviewProvider {
+struct ColorLight_Previews: PreviewProvider {
     static var previews: some View {
-        ColorCircle(color: Color(red: 1.0, green: 0.0, blue: 0.0, opacity: 0.3))
+        ColorLight(color: .red, opacity: 1, size: 150)
     }
 }
